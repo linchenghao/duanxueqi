@@ -1,0 +1,139 @@
+1.CREATE TABLE `tbl_fresh_kind` (
+  `kind_id` varchar(20) NOT NULL,
+  `kind_name` varchar(20) NOT NULL,
+	`kind_discribe` varchar(200) NOT NULL,
+  PRIMARY KEY (`kind_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+2.CREATE TABLE `tbl_shangpin_info` (
+  	`shangpin_id` varchar(20) NOT NULL,
+ 	 `shangpin_name` varchar(20) NOT NULL,
+	`price` DOUBLE NOT NULL,
+	`huiyuan_price` DOUBLE NOT NULL,
+	`count` INT NOT NULL,
+	`guige` varchar(20) NOT NULL,
+	`specific` varchar(20) NOT NULL,
+  PRIMARY KEY (`shangpin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+3.CREATE TABLE `tbl_fresh_caipuinfo` (
+  	`caipu_id` varchar(20) NOT NULL,
+ 	 `caipu_name` varchar(20) NOT NULL,
+	`caipu_yongliao` varchar(500) NOT NULL,
+	`step` varchar(500) NOT NULL,
+	`picture` BLOB NOT NULL,
+  PRIMARY KEY (`caipu_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+4.CREATE TABLE `tbl_fresh_recommandation` (
+	  `shangpin_id` varchar(20) NOT NULL,
+  	`caipu_id` varchar(20) NOT NULL,
+	`discribe` varchar(500) NOT NULL,
+  PRIMARY KEY (`caipu_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+5.CREATE TABLE `tbl_fresh_evaluate` (
+  `shangpin_id` varchar(20) NOT NULL,
+  `pjyh_id` varchar(20) NOT NULL,
+	`content` varchar(500) NOT NULL,
+	`content_time` datetime NOT NULL,
+	`level` INT NOT NULL,
+	`picture` BLOB NOT NULL,
+  PRIMARY KEY (`shangpin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+1.CREATE TABLE `tbl_youhui_quan` (
+  `quan_id` varchar(20) NOT NULL,
+	`content` varchar(500) NOT NULL,
+	`shiyongjine` varchar(20) NOT NULL,
+	`jianmianjine` varchar(20) NOT NULL,
+	`start_time` datetime NOT NULL,
+	`end_time` datetime NOT NULL,
+  PRIMARY KEY (`quan_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+2.CREATE TABLE `tbl_youhui_manzhe` (
+  `manzhe_id` varchar(20) NOT NULL,
+	`content` varchar(500) NOT NULL,
+	`shiyong_count` INT NOT NULL,
+	`zhekou` varchar(20) NOT NULL,
+	`start_time` datetime NOT NULL,
+	`end_time` datetime NOT NULL,
+  PRIMARY KEY (`manzhe_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+3.CREATE TABLE `tbl_youhui_manzheguanlian` (
+  `manzhe_id` varchar(20) NOT NULL,
+	`shangpin_id` varchar(20) NOT NULL,
+	`start_time` datetime NOT NULL,
+	`end_time` datetime NOT NULL,
+  PRIMARY KEY (`manzhe_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+4.CREATE TABLE `tbl_youhui_cuxiao` (
+  `cuxiao_id` varchar(20) NOT NULL,
+	`shangpin_id` varchar(20) NOT NULL,
+	`cuxiao_price` DOUBLE NOT NULL,
+	`cuxiao_count` INT NOT NULL,
+	`start_time` datetime NOT NULL,
+	`end_time` datetime NOT NULL,
+  PRIMARY KEY (`cuxiao_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+1.CREATE TABLE `tbl_user` (
+  `user_id` varchar(20) NOT NULL,
+  `user_name` varchar(20) NOT NULL,
+	`user_sex` varchar(20) NOT NULL,
+	`user_phone` varchar(20) NOT NULL,
+	`user_email` varchar(20) NOT NULL,
+	`user_city` varchar(20) NOT NULL,
+	`user_pwd` varchar(20) NOT NULL,
+  `register_time` datetime NOT NULL,
+	`user_huiyuan?` varchar(20) NOT NULL,
+	`daoqi_time` datetime NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+2.CREATE TABLE `tbl_user_add` (
+  `add_id` varchar(20) NOT NULL,
+  `user_id` varchar(20) NOT NULL,
+	`add_sheng` varchar(20) NOT NULL,
+	`add_shi` varchar(20) NOT NULL,
+	`add_qu` varchar(20) NOT NULL,
+	`address` varchar(20) NOT NULL,
+	`user_name` varchar(20) NOT NULL,
+	`user_phone` varchar(20) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+3.CREATE TABLE `tbl_user_order` (
+  `order_id` varchar(20) NOT NULL,
+  `user_id` varchar(20) NOT NULL,
+	`originalm` double NOT NULL,
+	`discountm` double NOT NULL,
+	`discount_id` varchar(20) NOT NULL,
+	`arrivaltime` datetime NOT NULL,
+	`address_id` varchar(20) NOT NULL,
+	`order_con` varchar(20) NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+4.CREATE TABLE `tbl_user_order_specific` (
+  `order_id` varchar(20) NOT NULL,
+  `shangping_id` varchar(20) NOT NULL,
+	`count` double NOT NULL,
+	`price` double NOT NULL,
+	`zhekou` varchar(20) NOT NULL,
+	`manzhe_id` varchar(20) NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+1.CREATE TABLE `tbl_admin_caigou` (
+  `caigou_id` varchar(20) NOT NULL,
+  `food_id` varchar(20) NOT NULL,
+	`amount` INT NOT NULL,
+	`condition` double NOT NULL,
+  PRIMARY KEY (`caigou_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+2.CREATE TABLE `tbl_admin_info` (
+  `admin_id` varchar(20) NOT NULL,
+  `admin_name` varchar(20) NOT NULL,
+	`admin_pwd` varchar(20) NOT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
